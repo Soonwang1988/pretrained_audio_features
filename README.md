@@ -13,7 +13,7 @@ This repository provides a script to extract audio features using pre-trained mo
 1. Clone the repository:
    ```bash
    git clone https://github.com/Soonwang1988/pretrained_audio_features.git
-   cd <pretrained_audio_features
+   cd pretrained_audio_features
    ```
 
 2. Install the required dependencies:
