@@ -92,21 +92,6 @@ python audio_feature_extractor.py \
 4. **Save Features**
    - Saves extracted features as `.npy` files in the same directory as the input audio files.
 
-## Class Structure
-
-### `AudioFeatureExtractor`
-
-#### Methods
-
-- `__init__(model_path)`: Initializes the extractor with model path and default sampling rate.
-- `load_model(model_name)`: Loads the specified pre-trained model.
-- `load_audio_file(file_path, db)`: Loads and preprocesses audio files.
-- `process_audio_in_chunks(wav, chunk_size, buffer_size, db)`: Processes audio in chunks with buffer zones.
-- `save_features(features, output_path)`: Saves extracted features to a `.npy` file.
-- `process_audio_directory(input_dir, db_gains)`: Processes all audio files in the specified directory.
-
-### `main()`
-The main entry point for command-line usage.
 
 ## Contributing
 
