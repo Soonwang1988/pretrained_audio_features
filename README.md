@@ -13,13 +13,16 @@ This repository provides a script to extract audio features using pre-trained mo
 1. Clone the repository:
    ```bash
    git clone https://github.com/Soonwang1988/pretrained_audio_features.git
+   
    cd pretrained_audio_features
    ```
 
 2. Install the required dependencies:
    ```bash
    conda create --name aud_features python=3.10 -y
+   
    source activate aud_features  # Use 'conda activate' if running manually
+   
    # Install PyTorch with CUDA
    conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=12.1 -c pytorch -c nvidia -y
 
