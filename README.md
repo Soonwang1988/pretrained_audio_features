@@ -37,14 +37,21 @@ This repository provides a script to extract audio features using pre-trained mo
 
 ### Command-Line Interface
 
-Run the script using the following command:
+Emotion feature Extraction:
+```bash
+
+python extract_emotion.py "audio_files_folder"
+
+```
+
+ASR feature Extraction:
 
 ```bash
 # without db augmentation
 python audio_feature_extractor.py \
     --model_name "wav2vec2-mms-1b-all" \
     --model_save_path "./pretrained_models" \
-    --input_dir "./audio_files" \
+    --input_dir "./audio_files_folder" \
     --chunk_duration 5 \
     --buffer_duration 1 \
     --db_gains 0
@@ -53,7 +60,7 @@ python audio_feature_extractor.py \
 python audio_feature_extractor.py \
     --model_name "wav2vec2-mms-1b-all" \
     --model_save_path "./pretrained_models" \
-    --input_dir "./audio_files" \
+    --input_dir "./audio_files_folder" \
     --chunk_duration 5 \
     --buffer_duration 1 \
     --db_gains 0 2 4 8 -2 -4 -8
