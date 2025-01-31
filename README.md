@@ -30,7 +30,7 @@ This repository provides a script to extract audio features using pre-trained mo
    conda install -c conda-forge fairseq==0.12.3 -y
 
    # Install additional dependencies
-   pip install librosa==0.10.2 transformers==4.48.2 speechbrain==1.0.2
+   pip install librosa==0.10.2 transformers==4.48.2 speechbrain==1.0.2 funasr==1.2.3
    ```
 
 ## Usage
