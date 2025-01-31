@@ -18,7 +18,16 @@ This repository provides a script to extract audio features using pre-trained mo
 
 2. Install the required dependencies:
    ```bash
-   pip install -r requirements.txt
+   conda create --name aud_features python=3.10 -y
+   source activate aud_features  # Use 'conda activate' if running manually
+   # Install PyTorch with CUDA
+   conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=12.1 -c pytorch -c nvidia -y
+
+   # Install Fairseq
+   conda install -c conda-forge fairseq==0.12.3 -y
+
+   # Install additional dependencies
+   pip install librosa==0.10.2 transformers==4.48.2 speechbrain==1.0.2
    ```
 
 ## Usage
@@ -28,6 +37,16 @@ This repository provides a script to extract audio features using pre-trained mo
 Run the script using the following command:
 
 ```bash
+# without db augmentation
+python audio_feature_extractor.py \
+    --model_name "wav2vec2-mms-1b-all" \
+    --model_save_path "./pretrained_models" \
+    --input_dir "./audio_files" \
+    --chunk_duration 5 \
+    --buffer_duration 1 \
+    --db_gains 0
+
+# if db aug required
 python audio_feature_extractor.py \
     --model_name "wav2vec2-mms-1b-all" \
     --model_save_path "./pretrained_models" \
@@ -35,6 +54,7 @@ python audio_feature_extractor.py \
     --chunk_duration 5 \
     --buffer_duration 1 \
     --db_gains 0 2 4 8 -2 -4 -8
+
 ```
 
 ### Arguments
@@ -48,17 +68,6 @@ python audio_feature_extractor.py \
 | `--buffer_duration` | Buffer duration in seconds around each chunk.                                                  | `1`                     |
 | `--db_gains`        | List of dB gains for augmentation.                                                             | `[0, 2, 4, 8, -2, -4, -8]` |
 
-### Example
-
-```bash
-python audio_feature_extractor.py \
-    --model_name "wav2vec2-base" \
-    --model_save_path "./pretrained_models" \
-    --input_dir "./audio_samples" \
-    --chunk_duration 5 \
-    --buffer_duration 1 \
-    --db_gains 0
-```
 
 ## Models Supported
 
@@ -83,7 +92,7 @@ python audio_feature_extractor.py \
 2. **Audio Preprocessing**
    - Resamples audio to 16 kHz.
    - Converts stereo to mono if needed.
-   - Applies dB gain augmentations.
+   - Applies dB gain augmentations if needed.
 
 3. **Feature Extraction**
    - Processes audio in chunks with buffer zones.
@@ -107,4 +116,3 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Feel free to raise issues or submit pull requests for improvements or additional features.
-
