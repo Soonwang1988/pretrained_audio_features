@@ -1,4 +1,5 @@
 import os
+import argparse
 import shutil
 import glob
 import numpy as np
@@ -82,8 +83,15 @@ class EmotionVectorExtractor:
             print(f"Folder './temp_emotion_outputs' does not exist.")
         print("All audio files processed.")
 
-# Example usage
-if __name__ == "__main__":
+
+def main():
+    parser = argparse.ArgumentParser(description="Extract emotion vectors from WAV files.")
+    parser.add_argument("wav_folder", type=str, help="Path to the folder containing WAV files")
+
+    args = parser.parse_args()
+
     extractor = EmotionVectorExtractor()
-    wav_folder_path = "/home/ubuntu/DATA/"
-    extractor.process_folder(wav_folder_path)
+    extractor.process_folder(args.wav_folder)
+
+if __name__ == "__main__":
+    main()
