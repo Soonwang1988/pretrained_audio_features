@@ -40,7 +40,7 @@ This repository provides a script to extract audio features using pre-trained mo
 Emotion feature Extraction:
 ```bash
 
-python extract_emotion.py "audio_files_folder"
+python emotion_feature_extractor.py "audio_files_folder"
 
 ```
 
