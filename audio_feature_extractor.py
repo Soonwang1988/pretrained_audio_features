@@ -38,9 +38,6 @@ class AudioFeatureExtractor:
             "data2vec-base": {"source":"facebook/data2vec-audio-base","feature_dim":768},
             "data2vec-large": {"source":"facebook/data2vec-audio-large","feature_dim":1024},
 
-            # "data2vec2-base": "https://dl.fbaipublicfiles.com/fairseq/data2vec2/base_libri.pt",
-            # "data2vec2-large": "https://dl.fbaipublicfiles.com/fairseq/data2vec2/large_vox.pt",
-
             "whisper-large-v3": {"source":"openai/whisper-large-v3","feature_dim":1280},
             "whisper-tiny": {"source":"openai/whisper-tiny","feature_dim":384},
         }
